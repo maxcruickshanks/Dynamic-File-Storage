@@ -35,17 +35,17 @@ public class Tools {
 		BW.close();
 	}
 	public static void sendFile(File file, DataOutputStream out) throws Exception {
-	    //send the number of lines and bytes for each line:
-	    BufferedReader BR = new BufferedReader(new FileReader(file));
-	    ArrayList<String> hold = new ArrayList<String>();
-	    String line;
-	    while ((line = BR.readLine()) != null) hold.add(line);
-	    BR.close();
-	    out.writeInt(hold.size());
-	    for (String ln : hold) {
-		    Log.Add(ln); sendBytes(Security.Encrypt(ln), out);
-	    }
-	    Log.Add("Sent file");
+		//send the number of lines and bytes for each line:
+		BufferedReader BR = new BufferedReader(new FileReader(file));
+		ArrayList<String> hold = new ArrayList<String>();
+		String line;
+		while ((line = BR.readLine()) != null) hold.add(line);
+		BR.close();
+		out.writeInt(hold.size());
+		for (String ln : hold) {
+			Log.Add(ln); sendBytes(Security.Encrypt(ln), out);
+		}
+		Log.Add("Sent file");
 	}
 	public static ArrayList<String> Execute(String execute) throws Exception {
 		ArrayList<String> ret = new ArrayList<String>();
