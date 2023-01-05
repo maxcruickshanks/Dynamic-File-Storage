@@ -32,28 +32,28 @@ public class Server implements Runnable {
 		return Tools.Compare(Tools.receiveBytes(in), Security.Encrypt(token));
 	}
 	public void run() {
-        while (true) {
-        	Socket client = null; ServerSocket listen;
-        	try {
-                listen = new ServerSocket(Constants.HOST_PORT);
-                Log.Add("Started server on " + listen.toString());
-                //serve one user:
-                client = listen.accept();
-                Log.Add("New client (IP: " + client.getInetAddress() + ")");
-                DataInputStream from_client = new DataInputStream(client.getInputStream());
-                DataOutputStream to_client = new DataOutputStream(client.getOutputStream());
-                //do a handshake with the client and then send the file and then receive the updated file:
-                if (!validateClient(to_client, from_client)) {
-                	Log.Add("INVALID ENCRYPTION (IP: " + client.getInetAddress() + ")");
-                	continue;
-                }
-                Tools.sendFile(new File(Constants.FILE_LOCATION), to_client);
-                Tools.receiveFile(new File(Constants.FILE_LOCATION), from_client);
-                client.close(); listen.close();
-            } catch (Exception e) {
-            	e.printStackTrace();
-            }
-            Log.Add("Dropped client (IP: " + client.getInetAddress() + ")");
-        }
-    }
+		while (true) {
+			Socket client = null; ServerSocket listen;
+			try {
+				listen = new ServerSocket(Constants.HOST_PORT);
+				Log.Add("Started server on " + listen.toString());
+				//serve one user:
+				client = listen.accept();
+				Log.Add("New client (IP: " + client.getInetAddress() + ")");
+				DataInputStream from_client = new DataInputStream(client.getInputStream());
+				DataOutputStream to_client = new DataOutputStream(client.getOutputStream());
+				//do a handshake with the client and then send the file and then receive the updated file:
+				if (!validateClient(to_client, from_client)) {
+					Log.Add("INVALID ENCRYPTION (IP: " + client.getInetAddress() + ")");
+					continue;
+				}
+				Tools.sendFile(new File(Constants.FILE_LOCATION), to_client);
+				Tools.receiveFile(new File(Constants.FILE_LOCATION), from_client);
+				client.close(); listen.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			Log.Add("Dropped client (IP: " + client.getInetAddress() + ")");
+		}
+	}
 }
