@@ -10,13 +10,13 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class Tools {
-	public static ArrayList<String> Execute(String... execute) throws Exception {
-		ArrayList<String> ret = new ArrayList<String>();
-		BufferedReader BR = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(execute).getInputStream()));
-		String line;
-		while ((line = BR.readLine()) != null && ret.size() < Constants.MAX_LINES) ret.add(line);
-		return ret;
-	}
+    public static ArrayList<String> Execute(String... execute) throws Exception {
+	ArrayList<String> ret = new ArrayList<String>();
+	BufferedReader BR = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(execute).getInputStream()));
+	String line;
+	while ((line = BR.readLine()) != null && ret.size() < Constants.MAX_LINES) ret.add(line);
+    	return ret;
+    }
     public static void receiveFile(File file, DataInputStream in) throws Exception {
         int lines = in.readInt();
         ArrayList<String> hold = new ArrayList<String>();
@@ -53,7 +53,7 @@ public class Tools {
         }
     	return false;
     }
-	public static void sendBytes(byte[] arr, DataOutputStream out) throws Exception {
+    public static void sendBytes(byte[] arr, DataOutputStream out) throws Exception {
         out.writeInt(arr.length); out.write(arr);
     }
     public static byte[] receiveBytes(DataInputStream in) throws Exception {
