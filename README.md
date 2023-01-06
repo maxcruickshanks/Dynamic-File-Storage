@@ -1,6 +1,6 @@
 # Dynamic-File-Storage
 ## Description
-This project was intended to support peer-to-peer dynamic file storage (supporting only one file currently) through a LAN connection.
+This project was intended to support peer-to-peer dynamic encrypted file storage (supporting only one file currently) through a LAN connection.
 
 ## Setup
 
