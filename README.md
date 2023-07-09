@@ -2,6 +2,8 @@
 ## Description
 This project was intended to support peer-to-peer dynamic encrypted file storage (supporting only one file currently) through a LAN connection.
 
+![File transfer example](https://maxcruickshanks.site/images/dynamic-file-storage.png)
+
 ## Setup
 
 First, update the AES-256 (AES_KEY) key for the client and server to any random string.
