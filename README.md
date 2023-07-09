@@ -15,6 +15,3 @@ Fourth, find the server's [LAN IP](https://www.whatismybrowser.com/detect/what-i
 Fifth, add an outbound/inbound rule on the Windows Defender Firewall for the port (HOST_PORT) on the server machine.
 
 Finally, tune any of the settings for port, lines to read from the command prompt, and the timeout length.
-
-## Copyright
-This program has no attached copyright; you can modify, distribute, and re-distribute as you like.
